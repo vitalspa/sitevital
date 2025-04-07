@@ -195,47 +195,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Formulário de Agendamento
+    // Função para formatar a data
+    function formatarData(data) {
+        const dia = data.getDate().toString().padStart(2, '0');
+        const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+        const ano = data.getFullYear();
+        return `${dia}/${mes}/${ano}`;
+    }
+
+    // Função para gerar o link do WhatsApp
+    function gerarLinkWhatsApp(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const name = form.querySelector('input[name="name"]').value;
+        const phone = form.querySelector('input[name="phone"]').value;
+        const service = form.querySelector('select[name="service"]').value;
+        const professional = form.querySelector('select[name="professional"]').value;
+        const date = form.querySelector('input[name="date"]').value;
+        const time = form.querySelector('input[name="time"]').value;
+
+        // Formata a data
+        const dataObj = new Date(date);
+        const formattedDate = formatarData(dataObj);
+
+        // Monta a mensagem com emojis Unicode
+        let message = `Olá! Gostaria de agendar um horário:\n\n`;
+        message += `\u{1F464} Nome: ${name}\n`;
+        message += `\u{1F4F1} Telefone: ${phone}\n`;
+        message += `\u{1F486} Serviço: ${service}\n`;
+        message += `\u{1F469} Profissional: ${professional}\n`;
+        message += `\u{1F4C5} Data: ${formattedDate}\n`;
+        message += `\u{1F551} Horário: ${time}\n`;
+
+        // Codifica a mensagem para URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Número do WhatsApp (substitua pelo número correto)
+        const phoneNumber = "5599999999999";
+
+        // Monta o link
+        const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        // Abre o link em uma nova aba
+        window.open(whatsappLink, '_blank');
+    }
+
+    // Adiciona o evento de submit ao formulário
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Coletar dados do formulário
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service');
-            const serviceName = service.options[service.selectedIndex].text;
-            const professional = document.getElementById('professional').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const notes = document.getElementById('notes').value;
-            
-            // Formatar a data
-            const formattedDate = new Date(date).toLocaleDateString('pt-BR');
-            
-            // Criar mensagem para WhatsApp
-            let message = `Olá! Gostaria de agendar um horário:\n\n`;
-            message += `👤 Nome: ${name}\n`;
-            message += `📞 Telefone: ${phone}\n`;
-            message += `💆‍♀️ Serviço: ${serviceName}\n`;
-            message += `👩 Profissional: ${professional}\n`;
-            message += `📅 Data: ${formattedDate}\n`;
-            message += `⏰ Horário: ${time}\n`;
-            
-            if (notes.trim()) {
-                message += `📝 Observações: ${notes}\n`;
-            }
-            
-            // Número do WhatsApp da empresa
-            const whatsappNumber = '5521970255490';
-            
-            // Criar link do WhatsApp
-            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            
-            // Abrir WhatsApp em nova aba
-            window.open(whatsappLink, '_blank');
-        });
+        bookingForm.addEventListener('submit', gerarLinkWhatsApp);
     }
 
     // Galeria de imagens do local

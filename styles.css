@@ -3082,3 +3082,62 @@ footer {
     border: 2px solid var(--primary-color);
     object-position: center top; /* Mantém o foco no rosto mesmo com zoom */
 }
+
+.btn-agendar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-color);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(122, 76, 40, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-agendar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.btn-agendar:hover::before {
+    left: 100%;
+}
+
+.btn-agendar i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-agendar:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(122, 76, 40, 0.3);
+}
+
+.btn-agendar:hover i {
+    transform: scale(1.1);
+}
+
+.btn-agendar:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(122, 76, 40, 0.2);
+}
