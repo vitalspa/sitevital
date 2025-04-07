@@ -196,89 +196,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Formulário de Agendamento
-    if (schedulingForm) {
-        // Obter parâmetros da URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const service = urlParams.get('service');
-        const price = urlParams.get('price');
-
-        // Preencher o serviço selecionado
-        if (service) {
-            const serviceSelect = document.getElementById('service');
-            const options = serviceSelect.options;
-            for (let i = 0; i < options.length; i++) {
-                if (options[i].value === service) {
-                    serviceSelect.selectedIndex = i;
-                    break;
-                }
-            }
-        }
-
-        // Configurar data mínima como hoje e validar dias da semana
-        const dateInput = document.getElementById('date');
-        if (dateInput) {
-            const today = new Date();
-            const dd = String(today.getDate()).padStart(2, '0');
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const yyyy = today.getFullYear();
-            const minDate = yyyy + '-' + mm + '-' + dd;
-            dateInput.min = minDate;
-
-            // Adicionar validação para dias da semana
-            dateInput.addEventListener('change', function() {
-                const selectedDate = new Date(this.value);
-                const dayOfWeek = selectedDate.getDay();
-                
-                // 0 = Domingo, 6 = Sábado
-                if (dayOfWeek === 0 || dayOfWeek === 6) {
-                    alert('Por favor, selecione um dia útil (segunda a sexta-feira).');
-                    this.value = '';
-                }
-            });
-        }
-
-        // Envio do formulário
-        schedulingForm.addEventListener('submit', function(e) {
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
-
-            // Formatar a data para o padrão brasileiro
-            const rawDate = document.getElementById('date').value;
-            const [year, month, day] = rawDate.split('-');
-            const formattedDate = `${day}/${month}/${year}`;
-
-            // Pegar o preço do serviço selecionado
-            const serviceSelect = document.getElementById('service');
-            const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-            const servicePrice = selectedOption.getAttribute('data-price');
-
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                service: selectedOption.value,
-                price: `R$ ${servicePrice},00`,
-                professional: document.getElementById('professional').value,
-                date: formattedDate,
-                time: document.getElementById('time').value,
-                notes: document.getElementById('notes').value.trim()
-            };
-
-            // Construir mensagem para WhatsApp com emojis
-            const message = 
-                `✨ *NOVO AGENDAMENTO - VITAL SPA* ✨%0A%0A` +
-                `👤 *Nome:* ${formData.name}%0A` +
-                `📱 *Telefone:* ${formData.phone}%0A%0A` +
-                `💆‍♀️ *Serviço:* ${formData.service}%0A` +
-                `💰 *Valor:* ${formData.price}%0A` +
-                `👩‍⚕️ *Profissional:* ${formData.professional}%0A%0A` +
-                `📅 *Data:* ${formData.date}%0A` +
-                `⏰ *Horário:* ${formData.time}h%0A%0A` +
-                (formData.notes ? `📝 *Observações:*%0A${formData.notes}%0A%0A` : '') +
-                `✨ *Agradecemos sua preferência!* ✨%0A` +
-                `💌 Confirmaremos seu agendamento em breve.`;
-
-            // Redirecionar para WhatsApp com o novo formato de URL
-            const whatsappUrl = `https://api.whatsapp.com/send/?phone=5521970255490&text=${message}&type=phone_number&app_absent=0`;
-            window.open(whatsappUrl, '_blank');
+            
+            // Coletar dados do formulário
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service');
+            const serviceName = service.options[service.selectedIndex].text;
+            const professional = document.getElementById('professional').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Formatar a data
+            const formattedDate = new Date(date).toLocaleDateString('pt-BR');
+            
+            // Criar mensagem para WhatsApp
+            let message = `Olá! Gostaria de agendar um horário:\n\n`;
+            message += `👤 Nome: ${name}\n`;
+            message += `📞 Telefone: ${phone}\n`;
+            message += `💆‍♀️ Serviço: ${serviceName}\n`;
+            message += `👩 Profissional: ${professional}\n`;
+            message += `📅 Data: ${formattedDate}\n`;
+            message += `⏰ Horário: ${time}\n`;
+            
+            if (notes.trim()) {
+                message += `📝 Observações: ${notes}\n`;
+            }
+            
+            // Número do WhatsApp da empresa
+            const whatsappNumber = '5521970255490';
+            
+            // Criar link do WhatsApp
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Abrir WhatsApp em nova aba
+            window.open(whatsappLink, '_blank');
         });
     }
 
@@ -382,49 +338,50 @@ document.addEventListener('DOMContentLoaded', function() {
         professionalsObserver.observe(card);
     });
 
-    // Manipulação do formulário de agendamento
-    const bookingForm = document.getElementById('booking-form');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Coletar dados do formulário
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+    // Preencher serviço selecionado na página de agendamento
+    if (window.location.pathname.includes('agendamento.html')) {
+        // Obter parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        const price = urlParams.get('price');
+        
+        // Preencher o serviço selecionado
+        if (service) {
             const serviceSelect = document.getElementById('service');
-            const service = serviceSelect.options[serviceSelect.selectedIndex].text;
-            const price = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price');
-            const professionalSelect = document.getElementById('professional');
-            const professional = professionalSelect.options[professionalSelect.selectedIndex].value;
-            const date = document.getElementById('date').value;
-            const timeSelect = document.getElementById('time');
-            const time = timeSelect.options[timeSelect.selectedIndex].value;
-            const notes = document.getElementById('notes').value;
-
-            // Formatar a data para o padrão brasileiro
-            const [year, month, day] = date.split('-');
-            const formattedDate = `${day}/${month}/${year}`;
-
-            // Construir a mensagem
-            let message = `🌺 *Novo Agendamento - Vital Spa* 🌺\n\n`;
-            message += `👤 *Nome:* ${name}\n`;
-            message += `📱 *Telefone:* ${phone}\n`;
-            message += `💆‍♀️ *Serviço:* ${service}\n`;
-            message += `💰 *Valor:* R$ ${parseFloat(price).toFixed(2).replace('.', ',')}\n`;
-            message += `👩‍⚕️ *Profissional:* ${professional}\n`;
-            message += `📅 *Data:* ${formattedDate}\n`;
-            message += `⏰ *Horário:* ${time}\n`;
-            
-            if (notes.trim()) {
-                message += `📝 *Observações:* ${notes}\n`;
+            if (serviceSelect) {
+                const options = serviceSelect.options;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].text.includes(service)) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
             }
+        }
 
-            // Codificar a mensagem para URL
-            const encodedMessage = encodeURIComponent(message);
-
-            // Redirecionar para o WhatsApp com a mensagem
-            window.location.href = `https://api.whatsapp.com/send/?phone=5521970255490&text=${encodedMessage}&type=phone_number&app_absent=0`;
-        });
+        // Validação de data para o formulário de agendamento
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            // Definir data mínima como hoje
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const minDate = yyyy + '-' + mm + '-' + dd;
+            dateInput.min = minDate;
+            
+            // Adicionar validação para dias da semana
+            dateInput.addEventListener('change', function() {
+                const selectedDate = new Date(this.value);
+                const dayOfWeek = selectedDate.getDay();
+                
+                // 0 = Domingo, 6 = Sábado
+                if (dayOfWeek === 0 || dayOfWeek === 6) {
+                    alert('Por favor, selecione um dia útil (segunda a sexta-feira).');
+                    this.value = '';
+                }
+            });
+        }
     }
 });
 
