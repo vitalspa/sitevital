@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Configurar data mínima como hoje
+        // Configurar data mínima como hoje e validar dias da semana
         const dateInput = document.getElementById('date');
         if (dateInput) {
             const today = new Date();
@@ -266,6 +266,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const yyyy = today.getFullYear();
             const minDate = yyyy + '-' + mm + '-' + dd;
             dateInput.min = minDate;
+
+            // Adicionar validação para dias da semana
+            dateInput.addEventListener('change', function() {
+                const selectedDate = new Date(this.value);
+                const dayOfWeek = selectedDate.getDay();
+                
+                // 0 = Domingo, 6 = Sábado
+                if (dayOfWeek === 0 || dayOfWeek === 6) {
+                    alert('Por favor, selecione um dia útil (segunda a sexta-feira).');
+                    this.value = '';
+                }
+            });
         }
 
         // Envio do formulário
@@ -412,6 +424,51 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         professionalsObserver.observe(card);
     });
+
+    // Manipulação do formulário de agendamento
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Coletar dados do formulário
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const serviceSelect = document.getElementById('service');
+            const service = serviceSelect.options[serviceSelect.selectedIndex].text;
+            const price = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price');
+            const professionalSelect = document.getElementById('professional');
+            const professional = professionalSelect.options[professionalSelect.selectedIndex].value;
+            const date = document.getElementById('date').value;
+            const timeSelect = document.getElementById('time');
+            const time = timeSelect.options[timeSelect.selectedIndex].value;
+            const notes = document.getElementById('notes').value;
+
+            // Formatar a data para o padrão brasileiro
+            const [year, month, day] = date.split('-');
+            const formattedDate = `${day}/${month}/${year}`;
+
+            // Construir a mensagem
+            let message = `🌺 *Novo Agendamento - Vital Spa* 🌺\n\n`;
+            message += `👤 *Nome:* ${name}\n`;
+            message += `📱 *Telefone:* ${phone}\n`;
+            message += `💆‍♀️ *Serviço:* ${service}\n`;
+            message += `💰 *Valor:* R$ ${parseFloat(price).toFixed(2).replace('.', ',')}\n`;
+            message += `👩‍⚕️ *Profissional:* ${professional}\n`;
+            message += `📅 *Data:* ${formattedDate}\n`;
+            message += `⏰ *Horário:* ${time}\n`;
+            
+            if (notes.trim()) {
+                message += `📝 *Observações:* ${notes}\n`;
+            }
+
+            // Codificar a mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Redirecionar para o WhatsApp com a mensagem
+            window.location.href = `https://api.whatsapp.com/send/?phone=5521970255490&text=${encodedMessage}&type=phone_number&app_absent=0`;
+        });
+    }
 });
 
 // Função para mudar a imagem principal na página de perfil

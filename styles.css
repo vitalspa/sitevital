@@ -3018,3 +3018,95 @@ footer {
         padding-top: 75%; /* Proporção 4:3 para mobile */
     }
 }
+
+/* Seção de Agendamento */
+.booking-section {
+    padding: 4rem 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.booking-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.form-group select option {
+    background-color: #322522;
+    color: var(--text-color);
+}
+
+.submit-btn {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #b38b7d;
+}
+
+/* Responsividade do Formulário */
+@media (max-width: 768px) {
+    .booking-section {
+        padding: 2rem 1rem;
+        margin: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Evita zoom em dispositivos iOS */
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+    }
+}
