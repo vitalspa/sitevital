@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Vital SPA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="arquivos/logo/logo.jpg" alt="Vital Spa Logo">
+                    <span>Vital Spa</span>
+                </a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#profissionais">Profissionais</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="agendamento">
+                <h2>Agendar Serviço</h2>
+                <p class="scheduling-description">Preencha o formulário abaixo para agendar sua sessão de massagem. Entraremos em contato para confirmar seu agendamento.</p>
+                
+                <form class="scheduling-form" id="schedulingForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone/WhatsApp:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Serviço:</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="Massagem Relaxante" data-price="150">Massagem Relaxante - R$ 150,00</option>
+                            <option value="Massagem Tântrica" data-price="200">Massagem Tântrica - R$ 200,00</option>
+                            <option value="Massagem Desportiva" data-price="180">Massagem Desportiva - R$ 180,00</option>
+                            <option value="Massagem Modeladora" data-price="170">Massagem Modeladora - R$ 170,00</option>
+                            <option value="Massagem com Pedras Quentes" data-price="190">Massagem com Pedras Quentes - R$ 190,00</option>
+                            <option value="Massagem com Aromaterapia" data-price="160">Massagem com Aromaterapia - R$ 160,00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professional">Profissional:</label>
+                        <select id="professional" name="professional" required>
+                            <option value="">Selecione uma profissional</option>
+                            <option value="Andy Vital">Andy Vital</option>
+                            <option value="Gabi Vital">Gabi Vital</option>
+                            <option value="Layla Vital">Layla Vital</option>
+                            <option value="Letícia Vital">Letícia Vital</option>
+                            <option value="Mary Vital">Mary Vital</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Data Preferencial:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Horário Preferencial:</label>
+                        <select id="time" name="time" required>
+                            <option value="">Selecione um horário</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Observações (opcional):</label>
+                        <textarea id="notes" name="notes" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit">Agendar</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Sobre Nós</h3>
+                    <p>Somos especialistas em massoterapia, oferecendo tratamentos personalizados para seu bem-estar e relaxamento.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/vitall.spa" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5521970255490" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
