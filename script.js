@@ -103,54 +103,91 @@ document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.professionals-carousel');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
-    const cards = document.querySelectorAll('.professional-album-card');
+    const cards = document.querySelectorAll('.professional-card');
     
-    if (!carousel || !prevButton || !nextButton || cards.length === 0) return;
-    
-    let currentIndex = 0;
-    const cardWidth = cards[0].offsetWidth + 32; // Largura do card + gap
-    
-    // Função para atualizar a posição do carrossel
-    function updateCarousel() {
-        carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
-    
-    // Função para verificar se os botões devem estar desabilitados
-    function updateButtons() {
-        prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-        prevButton.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+    if (carousel && prevButton && nextButton && cards.length > 0) {
+        let currentIndex = 0;
+        let isMobile = window.innerWidth <= 768;
         
-        const maxIndex = cards.length - Math.floor(carousel.parentElement.offsetWidth / cardWidth);
-        nextButton.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-        nextButton.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
-    }
-    
-    // Event listeners para os botões
-    prevButton.addEventListener('click', function() {
-        if (currentIndex > 0) {
-            currentIndex--;
+        // Função para calcular a largura do card
+        function getCardWidth() {
+            return isMobile ? carousel.offsetWidth : cards[0].offsetWidth + 32; // No mobile usa largura total
+        }
+        
+        // Função para atualizar a posição do carrossel
+        function updateCarousel() {
+            const cardWidth = getCardWidth();
+            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+        
+        // Função para verificar se os botões devem estar desabilitados
+        function updateButtons() {
+            prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            prevButton.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+            
+            const maxIndex = cards.length - (isMobile ? 1 : Math.floor(carousel.parentElement.offsetWidth / getCardWidth()));
+            nextButton.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+            nextButton.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+        }
+        
+        // Event listeners para os botões
+        prevButton.addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+                updateButtons();
+            }
+        });
+        
+        nextButton.addEventListener('click', function() {
+            const maxIndex = cards.length - (isMobile ? 1 : Math.floor(carousel.parentElement.offsetWidth / getCardWidth()));
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+                updateButtons();
+            }
+        });
+
+        // Adicionar suporte para gestos de swipe no mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeThreshold = 50; // Mínimo de pixels para considerar um swipe
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && currentIndex < cards.length - 1) {
+                    // Swipe para esquerda
+                    nextButton.click();
+                } else if (diff < 0 && currentIndex > 0) {
+                    // Swipe para direita
+                    prevButton.click();
+                }
+            }
+        }
+        
+        // Atualizar o carrossel quando a janela for redimensionada
+        window.addEventListener('resize', function() {
+            isMobile = window.innerWidth <= 768;
+            currentIndex = 0; // Reset para a primeira imagem ao redimensionar
             updateCarousel();
             updateButtons();
-        }
-    });
-    
-    nextButton.addEventListener('click', function() {
-        const maxIndex = cards.length - Math.floor(carousel.parentElement.offsetWidth / cardWidth);
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateCarousel();
-            updateButtons();
-        }
-    });
-    
-    // Inicializar o estado dos botões
-    updateButtons();
-    
-    // Atualizar o carrossel quando a janela for redimensionada
-    window.addEventListener('resize', function() {
+        });
+        
+        // Inicializar o carrossel
         updateCarousel();
         updateButtons();
-    });
+    }
 
     // Efeito de parallax para a seção hero
     const hero = document.querySelector('.hero');
@@ -264,14 +301,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 `💆‍♀️ *Serviço:* ${formData.service}%0A` +
                 `💰 *Valor:* ${formData.price}%0A` +
                 `👩‍⚕️ *Profissional:* ${formData.professional}%0A%0A` +
-                `📅 *Data:* ${formattedDate}%0A` +
+                `📅 *Data:* ${formData.date}%0A` +
                 `⏰ *Horário:* ${formData.time}h%0A%0A` +
                 (formData.notes ? `📝 *Observações:*%0A${formData.notes}%0A%0A` : '') +
                 `✨ *Agradecemos sua preferência!* ✨%0A` +
                 `💌 Confirmaremos seu agendamento em breve.`;
 
-            // Redirecionar para WhatsApp com a mensagem formatada
-            const whatsappUrl = `https://wa.me/5521970255490?text=${encodeURIComponent(message)}`;
+            // Redirecionar para WhatsApp com o novo formato de URL
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=5521970255490&text=${message}&type=phone_number&app_absent=0`;
             window.open(whatsappUrl, '_blank');
         });
     }

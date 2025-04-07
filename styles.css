@@ -2885,3 +2885,136 @@ footer {
         padding: 0.7rem;
     }
 }
+
+.professionals-section {
+    padding: 4rem 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.professionals-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.professionals-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.professionals-carousel {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.professional-card {
+    flex: 0 0 calc(33.333% - 1.33rem);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.professional-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+}
+
+.professional-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.professional-info {
+    padding: 1.5rem;
+    color: var(--text-color);
+}
+
+.professional-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.professional-info p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.carousel-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--text-color);
+    z-index: 2;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-button i {
+    font-size: 1.2rem;
+}
+
+/* Estilos Mobile */
+@media (max-width: 768px) {
+    .professionals-section {
+        padding: 2rem 1rem;
+    }
+
+    .professional-card {
+        flex: 0 0 100%;
+        margin: 0;
+    }
+
+    .professionals-carousel {
+        gap: 0;
+    }
+
+    .professional-info {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-button.prev {
+        left: 0;
+    }
+
+    .carousel-button.next {
+        right: 0;
+    }
+
+    .professional-image {
+        padding-top: 75%; /* Proporção 4:3 para mobile */
+    }
+}
