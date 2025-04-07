@@ -103,90 +103,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.professionals-carousel');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
-    const cards = document.querySelectorAll('.professional-card');
+    const cardWidth = 300; // Largura do card + gap
     
-    if (carousel && prevButton && nextButton && cards.length > 0) {
-        let currentIndex = 0;
-        let isMobile = window.innerWidth <= 768;
-        
-        // Função para calcular a largura do card
-        function getCardWidth() {
-            return isMobile ? carousel.offsetWidth : cards[0].offsetWidth + 32; // No mobile usa largura total
-        }
-        
-        // Função para atualizar a posição do carrossel
-        function updateCarousel() {
-            const cardWidth = getCardWidth();
-            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        }
-        
-        // Função para verificar se os botões devem estar desabilitados
-        function updateButtons() {
-            prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-            prevButton.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
-            
-            const maxIndex = cards.length - (isMobile ? 1 : Math.floor(carousel.parentElement.offsetWidth / getCardWidth()));
-            nextButton.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-            nextButton.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+    if (carousel && prevButton && nextButton) {
+        // Função para rolar o carrossel
+        function scrollCarousel(direction) {
+            const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
+            carousel.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
         }
         
         // Event listeners para os botões
-        prevButton.addEventListener('click', function() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-                updateButtons();
-            }
-        });
+        prevButton.addEventListener('click', () => scrollCarousel('prev'));
+        nextButton.addEventListener('click', () => scrollCarousel('next'));
         
-        nextButton.addEventListener('click', function() {
-            const maxIndex = cards.length - (isMobile ? 1 : Math.floor(carousel.parentElement.offsetWidth / getCardWidth()));
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateCarousel();
-                updateButtons();
-            }
-        });
-
-        // Adicionar suporte para gestos de swipe no mobile
+        // Suporte para gestos de swipe em dispositivos móveis
         let touchStartX = 0;
         let touchEndX = 0;
-
-        carousel.addEventListener('touchstart', e => {
+        
+        carousel.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         }, false);
-
-        carousel.addEventListener('touchend', e => {
+        
+        carousel.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         }, false);
-
+        
         function handleSwipe() {
-            const swipeThreshold = 50; // Mínimo de pixels para considerar um swipe
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0 && currentIndex < cards.length - 1) {
-                    // Swipe para esquerda
-                    nextButton.click();
-                } else if (diff < 0 && currentIndex > 0) {
-                    // Swipe para direita
-                    prevButton.click();
+            const swipeThreshold = 50;
+            const swipeDistance = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    scrollCarousel('prev');
+                } else {
+                    scrollCarousel('next');
                 }
             }
         }
-        
-        // Atualizar o carrossel quando a janela for redimensionada
-        window.addEventListener('resize', function() {
-            isMobile = window.innerWidth <= 768;
-            currentIndex = 0; // Reset para a primeira imagem ao redimensionar
-            updateCarousel();
-            updateButtons();
-        });
-        
-        // Inicializar o carrossel
-        updateCarousel();
-        updateButtons();
     }
 
     // Efeito de parallax para a seção hero

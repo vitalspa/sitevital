@@ -2889,224 +2889,150 @@ footer {
 .professionals-section {
     padding: 4rem 2rem;
     background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    margin: 2rem auto;
-    max-width: 1200px;
-}
-
-.professionals-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--text-color);
+    position: relative;
 }
 
 .professionals-container {
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    max-width: 100%;
-    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .professionals-carousel {
     display: flex;
     gap: 2rem;
-    transition: transform 0.3s ease;
-    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 1rem 0;
+}
+
+.professionals-carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .professional-card {
-    flex: 0 0 calc(33.333% - 1.33rem);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease;
 }
 
+.professional-card:hover {
+    transform: translateY(-5px);
+}
+
 .professional-image {
-    position: relative;
     width: 100%;
-    padding-top: 100%;
+    height: 300px;
     overflow: hidden;
 }
 
 .professional-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
+.professional-image:hover img {
+    transform: scale(1.05);
+}
+
 .professional-info {
     padding: 1.5rem;
-    color: var(--text-color);
+    text-align: center;
+    color: #fff;
 }
 
 .professional-info h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 .professional-info p {
-    margin: 0.25rem 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.professional-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #ff69b4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.professional-btn:hover {
+    background-color: #ff1493;
 }
 
 .carousel-button {
-    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
     border: none;
-    border-radius: 50%;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    color: #fff;
     transition: background-color 0.3s ease;
-    color: var(--text-color);
-    z-index: 2;
 }
 
 .carousel-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.carousel-button i {
-    font-size: 1.2rem;
+.carousel-button.prev {
+    left: 0;
 }
 
-/* Estilos Mobile */
+.carousel-button.next {
+    right: 0;
+}
+
 @media (max-width: 768px) {
-    .professionals-section {
-        padding: 2rem 1rem;
+    .professionals-container {
+        padding: 0 20px;
     }
 
     .professional-card {
-        flex: 0 0 100%;
-        margin: 0;
+        flex: 0 0 280px;
     }
 
-    .professionals-carousel {
-        gap: 0;
+    .professional-image {
+        height: 250px;
     }
 
     .professional-info {
         padding: 1rem;
-        text-align: center;
+    }
+
+    .professional-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .professional-info p {
+        font-size: 0.9rem;
     }
 
     .carousel-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .carousel-button.prev {
-        left: 0;
-    }
-
-    .carousel-button.next {
-        right: 0;
-    }
-
-    .professional-image {
-        padding-top: 75%; /* Proporção 4:3 para mobile */
-    }
-}
-
-/* Seção de Agendamento */
-.booking-section {
-    padding: 4rem 2rem;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    margin: 2rem auto;
-    max-width: 800px;
-}
-
-.booking-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--text-color);
-}
-
-.booking-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group label {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    font-size: 1rem;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.form-group select option {
-    background-color: #322522;
-    color: var(--text-color);
-}
-
-.submit-btn {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-}
-
-.submit-btn:hover {
-    background-color: #b38b7d;
-}
-
-/* Responsividade do Formulário */
-@media (max-width: 768px) {
-    .booking-section {
-        padding: 2rem 1rem;
-        margin: 1rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 16px; /* Evita zoom em dispositivos iOS */
-    }
-
-    .submit-btn {
-        width: 100%;
-        padding: 1rem;
+        width: 30px;
+        height: 30px;
     }
 }
