@@ -21,19 +21,26 @@
 }
 
 /* Reset do background e ajuste do layout geral */
-body {
+html, body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     background-color: #322522;
     color: #fff;
+    overflow-x: hidden;
 }
 
 .page-wrapper {
     min-height: 100vh;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: url('arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-1.jpeg') no-repeat center center fixed;
     background-size: cover;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .page-wrapper::before {
@@ -45,6 +52,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
+    pointer-events: none;
 }
 
 /* Header e Navegação */
@@ -58,6 +66,11 @@ header {
     height: 80px;
     display: flex;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+header.hidden {
+    transform: translateY(-100%);
 }
 
 .nav-container {
@@ -154,6 +167,23 @@ nav a:hover {
         display: block;
         width: 100%;
         text-align: center;
+    }
+
+    .page-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    main {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    section {
+        margin: 1rem;
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }
 
@@ -2869,21 +2899,62 @@ footer {
 }
 
 .scheduling-form button {
-    background-color: #ffd700;
-    color: #000;
-    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    padding: 1.2rem 2rem;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(122, 76, 40, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scheduling-form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.scheduling-form button:hover::before {
+    left: 100%;
+}
+
+.scheduling-form button i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
 }
 
 .scheduling-form button:hover {
-    background-color: #ffed4a;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(122, 76, 40, 0.3);
+}
+
+.scheduling-form button:hover i {
+    transform: scale(1.1);
+}
+
+.scheduling-form button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(122, 76, 40, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -3053,17 +3124,17 @@ footer {
 /* Estilos para as imagens dos profissionais nas páginas individuais */
 .main-image {
     width: 100%;
-    height: 500px;
-    object-fit: cover;
-    object-position: center top; /* Centraliza a imagem na parte superior */
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
     border-radius: 15px;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
+    background-color: var(--card-background);
 }
 
 .main-image:hover {
     transform: scale(1.02);
-    object-position: center top; /* Mantém o foco no rosto mesmo com zoom */
 }
 
 .thumbnail {

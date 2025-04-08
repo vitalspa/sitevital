@@ -392,6 +392,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
+    // Controle do header durante a rolagem
+    const header = document.querySelector('header');
+    const pageWrapper = document.querySelector('.page-wrapper');
+    let lastScroll = 0;
+    const scrollThreshold = 100;
+
+    if (pageWrapper) {
+        pageWrapper.addEventListener('scroll', function() {
+            const currentScroll = pageWrapper.scrollTop;
+            
+            // Determina a direção da rolagem
+            if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+                // Rolando para baixo
+                header.classList.add('hidden');
+            } else {
+                // Rolando para cima
+                header.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    }
 });
 
 // Função para mudar a imagem principal na página de perfil
