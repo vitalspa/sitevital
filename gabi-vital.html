@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gabi Vital - Massagista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <span>Vital SPA</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span class="menu-icon"></span>
+                </button>
+                <nav class="nav-links">
+                    <a href="index.html#home" class="nav-link">Início</a>
+                    <a href="index.html#services" class="nav-link">Serviços</a>
+                    <a href="index.html#nossos-profissionais" class="nav-link">Profissionais</a>
+                    <a href="index.html#local" class="nav-link">Localização</a>
+                    <a href="index.html#about" class="nav-link">Sobre</a>
+                    <a href="agendamento.html" class="btn-primary">Agendar</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="therapist-profile">
+                <div class="therapist-card">
+                    <div class="therapist-gallery">
+                        <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-1.jpeg" alt="Gabi Vital" class="main-image" id="mainImage">
+                        <div class="thumbnails">
+                            <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-1.jpeg" alt="Gabi Vital 1" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-2.jpeg" alt="Gabi Vital 2" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-3.jpeg" alt="Gabi Vital 3" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-4.jpeg" alt="Gabi Vital 4" class="thumbnail" onclick="changeImage(this.src)">
+                        </div>
+                    </div>
+                    
+                    <div class="therapist-info">
+                        <div class="therapist-header">
+                            <h3>Gabi Vital</h3>
+                            <p class="therapist-title">Massoterapeuta Especialista em Massagem Desportiva e Modeladora</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Sobre</h4>
+                            <p>Olá! Sou a Gabi Vital, massoterapeuta especializada em massagens desportivas e modeladoras. Com experiência em diversos tipos de massagem, trabalho para proporcionar o máximo de benefícios aos meus clientes.</p>
+                            <p>Minha técnica combina conhecimento técnico com um toque personalizado, garantindo resultados eficientes e uma experiência relaxante. Cada sessão é única, adaptada às necessidades específicas de cada cliente.</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Especialidades</h4>
+                            <div class="techniques">
+                                <span class="technique-tag">Massagem Desportiva</span>
+                                <span class="technique-tag">Massagem Modeladora</span>
+                                <span class="technique-tag">Massagem Relaxante</span>
+                                <span class="technique-tag">Massagem com Pedras Quentes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Formação</h4>
+                            <ul>
+                                <li>Formação em Massoterapia</li>
+                                <li>Especialização em Massagem Desportiva</li>
+                                <li>Certificação em Massagem Modeladora</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Horários</h4>
+                            <div class="schedule">
+                                <div class="schedule-day">
+                                    <span class="day">Segunda a Sexta</span>
+                                    <span class="time">10:00 - 19:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Formas de Pagamento</h4>
+                            <p class="payment-tag">Aceitamos PIX, Cartões de Crédito/Débito e Dinheiro</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Local</h4>
+                            <p>Av. Rio Branco, N° 156 /sala 1120</p>
+                            <p>Edifício Central</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Contato</h4>
+                            <p><a href="tel:21997235034" class="contact-link">(21) 99723-5034</a></p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Local</h4>
+                            <img src="arquivos/modelos/local/Vital Spa.jpeg" alt="Vital Spa - Terapias Holísticas" class="location-logo">
+                        </div>
+                        
+                        <a href="agendamento.html" class="professional-btn">Agendar Sessão</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Sobre a Vital</h3>
+                    <p>Somos especialistas em massoterapia, oferecendo tratamentos personalizados para seu bem-estar e relaxamento. Nossa equipe é altamente qualificada e comprometida com sua satisfação.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+                        <li><a href="index.html#nossos-profissionais"><i class="fas fa-chevron-right"></i> Profissionais</a></li>
+                        <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="index.html#local"><i class="fas fa-chevron-right"></i> Nosso Local</a></li>
+                        <li><a href="agendamento.html"><i class="fas fa-chevron-right"></i> Agendar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Massoterapia. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

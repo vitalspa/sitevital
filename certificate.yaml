@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: vitalspa-certificate
+spec:
+  domains:
+    - vitalsparj.com
+    - www.vitalsparj.com 

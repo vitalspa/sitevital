@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vital SPA - Terapias Holísticas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="/">
+                        <span>Vital SPA</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span class="menu-icon"></span>
+                </button>
+
+                <nav class="nav-links">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#nossos-profissionais" class="nav-link">Profissionais</a>
+                    <a href="#local" class="nav-link">Localização</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="agendamento.html" class="btn-primary">Agendar</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero" id="home">
+                <div class="hero-content">
+                    <h1>Bem-vindo à Vital Spa</h1>
+                    <p>Descubra o poder transformador das terapias holísticas em um ambiente exclusivo e relaxante. Nossa equipe de profissionais está pronta para proporcionar uma experiência única de bem-estar.</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="hero-btn primary">Nossos Serviços</a>
+                        <a href="agendamento.html" class="hero-btn secondary">Agende Agora</a>
+                    </div>
+                </div>
+                <a href="#services" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </section>
+
+            <section id="nossos-profissionais" class="professionals-section">
+                <h2>Nossos Profissionais</h2>
+                <div class="professionals-container">
+                    <button class="carousel-button prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="professionals-carousel">
+                        <div class="professional-card">
+                            <div class="professional-image">
+                                <a href="andy-vital.html">
+                                    <img src="arquivos/modelos/Andy Vital/vital - andy 01.jpeg" alt="Andy Vital">
+                                </a>
+                            </div>
+                            <div class="professional-info">
+                                <h3>Andy Vital</h3>
+                                <p>Especialista em Massagens Terapêuticas</p>
+                                <p>Técnicas: Nuru, 4 Mãos, Tântrica</p>
+                                <a href="andy-vital.html" class="professional-btn">Ver Perfil</a>
+                            </div>
+                        </div>
+                        <div class="professional-card">
+                            <div class="professional-image">
+                                <a href="mary-vital.html">
+                                    <img src="arquivos/modelos/Mary Vital/Mary-Vital-Mar-2025-1.jpeg.webp" alt="Mary Vital">
+                                </a>
+                            </div>
+                            <div class="professional-info">
+                                <h3>Mary Vital</h3>
+                                <p>Especialista em Massagens Terapêuticas</p>
+                                <p>Técnicas: Nuru, 4 Mãos, Tântrica</p>
+                                <a href="mary-vital.html" class="professional-btn">Ver Perfil</a>
+                            </div>
+                        </div>
+                        <div class="professional-card">
+                            <div class="professional-image">
+                                <a href="gabi-vital.html">
+                                    <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-1.jpeg" alt="Gabi Vital">
+                                </a>
+                            </div>
+                            <div class="professional-info">
+                                <h3>Gabi Vital</h3>
+                                <p>Especialista em Massagem Desportiva e Modeladora</p>
+                                <p>Técnicas: Desportiva, Modeladora, Pedras Quentes</p>
+                                <a href="gabi-vital.html" class="professional-btn">Ver Perfil</a>
+                            </div>
+                        </div>
+                        <div class="professional-card">
+                            <div class="professional-image">
+                                <a href="leticia-vital.html">
+                                    <img src="arquivos/modelos/Letícia Vital/Leticia-Vital-Mar-2025-1.jpeg" alt="Letícia Vital">
+                                </a>
+                            </div>
+                            <div class="professional-info">
+                                <h3>Letícia Vital</h3>
+                                <p>Especialista em Massagens Terapêuticas</p>
+                                <p>Técnicas: Nuru, 4 Mãos, Tântrica</p>
+                                <a href="leticia-vital.html" class="professional-btn">Ver Perfil</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-button next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section class="services" id="services">
+                <h2>Nossos Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-spa"></i>
+                        <h3>Massagem Relaxante</h3>
+                        <p>Uma massagem suave e relaxante para aliviar o estresse e promover o bem-estar.</p>
+                        <p class="service-price">A partir de R$ 130,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-running"></i>
+                        <h3>Massagem Desportiva</h3>
+                        <p>Ideal para atletas e praticantes de atividades físicas, ajudando na recuperação muscular.</p>
+                        <p class="service-price">A partir de R$ 150,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Massagem Tântrica</h3>
+                        <p>Uma experiência única de conexão e relaxamento profundo.</p>
+                        <p class="service-price">A partir de R$ 200,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-yin-yang"></i>
+                        <h3>Massagem Thay</h3>
+                        <p>Técnica tradicional tailandesa que combina alongamento e pressão.</p>
+                        <p class="service-price">A partir de R$ 220,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Nuru Mútua</h3>
+                        <p>Uma experiência única de conexão e relaxamento profundo.</p>
+                        <p class="service-price">A partir de R$ 300,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Massagem 4 Mãos</h3>
+                        <p>Uma experiência única com dois profissionais trabalhando simultaneamente.</p>
+                        <p class="service-price">A partir de R$ 390,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Home Massage</h3>
+                        <p>Massagem relaxante no conforto da sua casa.</p>
+                        <p class="service-price">R$ 500,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Massagem Vital</h3>
+                        <p>Nossa massagem exclusiva que combina várias técnicas para uma experiência única.</p>
+                        <p class="service-price">A partir de R$ 330,00</p>
+                        <a href="agendamento.html" class="service-btn">Agendar</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="local" class="location">
+                <h2>Nosso Local</h2>
+                <div class="location-content">
+                    <div class="location-info">
+                        <h3>Centro - Rio Branco</h3>
+                        <p>Ambiente acolhedor e tranquilo para seu relaxamento</p>
+                        <div class="location-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Av. Rio Branco, N° 156 /sala 1120, edifício central</p>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <p>Segunda a Sábado: 9h às 20h</p>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-parking"></i>
+                                <p>Estacionamento disponível</p>
+                            </div>
+                        </div>
+                        <a href="clinica.html" class="btn">Conheça Nossa Clínica</a>
+                    </div>
+                    <div class="location-gallery">
+                        <div class="gallery-main">
+                            <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-1.jpeg" alt="Clínica Vital SPA" class="main-img">
+                        </div>
+                        <div class="gallery-thumbnails">
+                            <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-2.jpeg" alt="Galeria Local 1" class="thumb-img">
+                            <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-3.jpeg" alt="Galeria Local 2" class="thumb-img">
+                            <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-4.jpeg" alt="Galeria Local 3" class="thumb-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about" id="about">
+                <div class="about-container">
+                    <div class="about-content">
+                        <h2>Sobre a Vital</h2>
+                        <p>Na Vital Massoterapia, acreditamos que cada pessoa é única e merece um tratamento personalizado. Nossa equipe de profissionais altamente qualificados está comprometida em proporcionar uma experiência transformadora através da massoterapia.</p>
+                        <p>Com anos de experiência no mercado, desenvolvemos técnicas exclusivas que combinam tradição e inovação, sempre priorizando o bem-estar e a satisfação dos nossos clientes.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-text">Anos de Experiência</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5000+</div>
+                                <div class="stat-text">Clientes Atendidos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-text">Profissionais Qualificados</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-text">Satisfação dos Clientes</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-4.jpeg" alt="Clínica Vital">
+                    </div>
+                </div>
+            </section>
+
+            <section class="feedback" id="feedback">
+                <h2>Comentários e Feedbacks</h2>
+                <div class="feedback-container">
+                    <div class="feedback-form">
+                        <h3>Deixe seu Feedback</h3>
+                        <form id="feedback-form">
+                            <input type="text" placeholder="Seu Nome" required>
+                            <input type="email" placeholder="Seu Email" required>
+                            <select required>
+                                <option value="">Selecione sua Avaliação</option>
+                                <option value="5">⭐⭐⭐⭐⭐ Excelente</option>
+                                <option value="4">⭐⭐⭐⭐ Muito Bom</option>
+                                <option value="3">⭐⭐⭐ Bom</option>
+                                <option value="2">⭐⭐ Regular</option>
+                                <option value="1">⭐ Ruim</option>
+                            </select>
+                            <textarea placeholder="Compartilhe sua experiência conosco..." required></textarea>
+                            <button type="submit">Enviar Feedback</button>
+                        </form>
+                    </div>
+                    
+                    <div class="feedback-comments">
+                        <h3>Avaliações Recentes</h3>
+                        <div class="comment-card">
+                            <div class="comment-header">
+                                <img src="arquivos/modelos/Andy Vital/vital - andy 01.jpeg" alt="Andy Vital">
+                                <div class="comment-info">
+                                    <h4>Cliente: João Silva</h4>
+                                    <p class="therapist-name">Terapeuta: Andy Vital</p>
+                                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="comment-text">Profissional excepcional! As técnicas de massagem relaxante são únicas e proporcionam um bem-estar incomparável. Recomendo muito!</p>
+                        </div>
+                        
+                        <div class="comment-card">
+                            <div class="comment-header">
+                                <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-1.jpeg" alt="Gabi Vital">
+                                <div class="comment-info">
+                                    <h4>Cliente: Pedro Santos</h4>
+                                    <p class="therapist-name">Terapeuta: Gabi Vital</p>
+                                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="comment-text">A massagem modeladora é incrível! Resultados visíveis desde a primeira sessão. Profissional super atenciosa e competente. Voltarei com certeza!</p>
+                        </div>
+                        
+                        <div class="comment-card">
+                            <div class="comment-header">
+                                <img src="arquivos/modelos/Mary Vital/Mary-Vital-Mar-2025-1.jpeg.webp" alt="Mary Vital">
+                                <div class="comment-info">
+                                    <h4>Cliente: Carlos Costa</h4>
+                                    <p class="therapist-name">Terapeuta: Mary Vital</p>
+                                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="comment-text">Profissional incrível! A massagem tântrica é uma experiência transformadora. Me senti completamente renovado e energizado.</p>
+                        </div>
+                        
+                        <div class="comment-card">
+                            <div class="comment-header">
+                                <img src="arquivos/modelos/Letícia Vital/Leticia-Vital-Mar-2025-1.jpeg" alt="Letícia Vital">
+                                <div class="comment-info">
+                                    <h4>Cliente: André Oliveira</h4>
+                                    <p class="therapist-name">Terapeuta: Letícia Vital</p>
+                                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="comment-text">A massagem com pedras quentes é uma experiência única! O ambiente é super acolhedor e a profissional é muito competente. Recomendo a todos!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sobre a Vital</h3>
+                <p>Somos especialistas em massoterapia, oferecendo tratamentos personalizados para seu bem-estar e relaxamento. Nossa equipe é altamente qualificada e comprometida com sua satisfação.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/vitall.spa" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5521997235034" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+                    <li><a href="#nossos-profissionais"><i class="fas fa-chevron-right"></i> Profissionais</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                    <li><a href="#local"><i class="fas fa-chevron-right"></i> Nosso Local</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                </ul>
+            </div>
+            
+            <p>&copy; 2024 Massoterapia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Agendamento -->
+    <div id="schedulingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agendar Sessão</h2>
+            <form id="schedulingForm">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Horário:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Serviço:</label>
+                    <select id="service" name="service" required>
+                        <option value="">Selecione um serviço</option>
+                        <option value="Massagem Relaxante">Massagem Relaxante</option>
+                        <option value="Massagem Tântrica">Massagem Tântrica</option>
+                        <option value="Massagem Desportiva">Massagem Desportiva</option>
+                        <option value="Massagem Modeladora">Massagem Modeladora</option>
+                        <option value="Massagem com Pedras Quentes">Massagem com Pedras Quentes</option>
+                        <option value="Massagem com Aromaterapia">Massagem com Aromaterapia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="therapist">Profissional:</label>
+                    <select id="therapist" name="therapist" required>
+                        <option value="">Selecione um profissional</option>
+                        <option value="Andy Vital">Andy Vital</option>
+                        <option value="Gabi Vital">Gabi Vital</option>
+                        <option value="Mary Vital">Mary Vital</option>
+                        <option value="Letícia Vital">Letícia Vital</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem (opcional):</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Valor do Serviço:</label>
+                    <div id="service-price" class="service-price"></div>
+                </div>
+                <button type="submit" class="btn">Agendar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

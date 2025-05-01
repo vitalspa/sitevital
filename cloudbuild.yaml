@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssl-certificates'
+      - 'create'
+      - 'vitalspa-certificate'
+      - '--domains=vitalsparj.com,www.vitalsparj.com'
+      - '--global' 

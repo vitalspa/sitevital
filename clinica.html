@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Spa - Clínica de Massoterapia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="arquivos/logo/logo.jpg" alt="Logo Vital Spa">
+            </div>
+            <ul>
+                <li><a href="index.html#inicio">Início</a></li>
+                <li><a href="index.html#profissionais">Profissionais</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#local">Local</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li><a href="clinica.html">Clínica</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="clinic-profile">
+            <div class="clinic-card">
+                <div class="clinic-gallery">
+                    <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-1.jpeg" alt="Vital Spa" class="main-image" id="mainImage">
+                    <div class="thumbnails">
+                        <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-1.jpeg" alt="Vital Spa 1" class="thumbnail" onclick="changeImage(this.src)">
+                        <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-2.jpeg" alt="Vital Spa 2" class="thumbnail" onclick="changeImage(this.src)">
+                        <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-3.jpeg" alt="Vital Spa 3" class="thumbnail" onclick="changeImage(this.src)">
+                        <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-4.jpeg" alt="Vital Spa 4" class="thumbnail" onclick="changeImage(this.src)">
+                        <img src="arquivos/modelos/local/Clinica-Vital-Spa-27.02.25-5.jpeg" alt="Vital Spa 5" class="thumbnail" onclick="changeImage(this.src)">
+                    </div>
+                </div>
+                <div class="clinic-info">
+                    <div class="clinic-header">
+                        <h3>Vital Spa</h3>
+                        <p class="clinic-title">Centro - Rio Branco</p>
+                    </div>
+                    <div class="info-section">
+                        <h4>Contato</h4>
+                        <p><a href="tel:21997235034" class="contact-link">(21) 99723-5034</a></p>
+                        <p><a href="tel:21997235034" class="contact-link">(21) 99723-5034</a></p>
+                    </div>
+                    <div class="info-section">
+                        <h4>Técnicas e Pagamento</h4>
+                        <div class="techniques">
+                            <span class="technique-tag">4 Mãos</span>
+                            <span class="technique-tag">Casais</span>
+                            <span class="technique-tag">Desportiva</span>
+                            <span class="technique-tag">Mix</span>
+                            <span class="technique-tag">Mútua</span>
+                            <span class="technique-tag">Nuru</span>
+                            <span class="technique-tag">Relaxante</span>
+                            <span class="technique-tag">Sensitiva</span>
+                            <span class="technique-tag">Tântrica</span>
+                            <span class="technique-tag">Vivência</span>
+                        </div>
+                        <div class="techniques">
+                            <span class="technique-tag">Aparação de Pêlos</span>
+                            <span class="technique-tag">Depilação</span>
+                            <span class="technique-tag">Esfoliação</span>
+                            <span class="technique-tag">Spa dos Pés</span>
+                        </div>
+                        <div class="payment-methods">
+                            <p>Aceito: <span class="payment-tag">Crédito</span> - <span class="payment-tag">Débito</span> - <span class="payment-tag">Dinheiro</span> - <span class="payment-tag">Pix</span></p>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <h4>Sobre a clínica</h4>
+                        <p>A Vital SPA vem trazendo novas técnicas de relaxamento, cuidado e prazer com o seu corpo e mente. Disponibilizamos um ambiente aconchegante e sereno para que a conexão e equilíbrio de corpo, mente e alma sejam alinhados a cada toque das nossas mais selecionadas Terapeutas. Realizamos serviços de aparo de pelos, depilação, massagem desportiva, tântrica, spa dos pés, entre outros. Nos faça uma visita, estaremos a sua espera!</p>
+                    </div>
+                    <div class="info-section">
+                        <h4>Horários</h4>
+                        <div class="schedule">
+                            <div class="schedule-day">
+                                <span class="day">Segunda</span>
+                                <span class="time">10:00 - 19:30</span>
+                            </div>
+                            <div class="schedule-day">
+                                <span class="day">Terça</span>
+                                <span class="time">10:00 - 19:30</span>
+                            </div>
+                            <div class="schedule-day">
+                                <span class="day">Quarta</span>
+                                <span class="time">10:00 - 19:30</span>
+                            </div>
+                            <div class="schedule-day">
+                                <span class="day">Quinta</span>
+                                <span class="time">10:00 - 19:30</span>
+                            </div>
+                            <div class="schedule-day">
+                                <span class="day">Sexta</span>
+                                <span class="time">10:00 - 19:30</span>
+                            </div>
+                            <div class="schedule-day">
+                                <span class="day">Sábado</span>
+                                <span class="time">09:00 - 14:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <h4>Nossa Equipe</h4>
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <a href="andy-vital.html">
+                                    <img src="arquivos/modelos/Andy Vital/Andy-massa-27.01.25-3.jpeg" alt="Andy Vital">
+                                    <h5>Andy Vital</h5>
+                                    <p>Massagista Profissional</p>
+                                </a>
+                            </div>
+                            <div class="team-member">
+                                <a href="gabi-vital.html">
+                                    <img src="arquivos/modelos/Gabi Vital/Gabi-Vital-Abril-2025-1.jpeg" alt="Gabi Vital">
+                                    <h5>Gabi Vital</h5>
+                                    <p>Massagista Profissional</p>
+                                </a>
+                            </div>
+                            <div class="team-member">
+                                <a href="leticia-vital.html">
+                                    <img src="arquivos/modelos/Letícia Vital/Leticia-Vital-Mar-2025-1.jpeg" alt="Letícia Vital">
+                                    <h5>Letícia Vital</h5>
+                                    <p>Massagista Profissional</p>
+                                </a>
+                            </div>
+                            <div class="team-member">
+                                <a href="mary-vital.html">
+                                    <img src="arquivos/modelos/Mary Vital/Mary-Vital-Mar-2025-1.jpeg.webp" alt="Mary Vital">
+                                    <h5>Mary Vital</h5>
+                                    <p>Massagista Profissional</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vital Spa. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+        }
+    </script>
+</body>
+</html> 

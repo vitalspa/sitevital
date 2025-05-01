@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Andy Vital - Massagista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <span>Vital SPA</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span class="menu-icon"></span>
+                </button>
+                <nav class="nav-links">
+                    <a href="index.html#home" class="nav-link">Início</a>
+                    <a href="index.html#services" class="nav-link">Serviços</a>
+                    <a href="index.html#nossos-profissionais" class="nav-link">Profissionais</a>
+                    <a href="index.html#local" class="nav-link">Localização</a>
+                    <a href="index.html#about" class="nav-link">Sobre</a>
+                    <a href="agendamento.html" class="btn-primary">Agendar</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="therapist-profile">
+                <div class="therapist-card">
+                    <div class="therapist-gallery">
+                        <img src="arquivos/modelos/Andy Vital/vital - andy 01.jpeg" alt="Andy Vital" class="main-image" id="mainImage">
+                        <div class="thumbnails">
+                            <img src="arquivos/modelos/Andy Vital/vital - andy 01.jpeg" alt="Andy Vital 1" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Andy Vital/vital - andy 02.jpeg" alt="Andy Vital 2" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Andy Vital/vital - andy 03.jpeg" alt="Andy Vital 3" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Andy Vital/Andy-Vital-Massa-Mar-2025-3.jpeg" alt="Andy Vital 4" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="arquivos/modelos/Andy Vital/Andy-massa-27.01.25-3.jpeg" alt="Andy Vital 5" class="thumbnail" onclick="changeImage(this.src)">
+                        </div>
+                    </div>
+                    
+                    <div class="therapist-info">
+                        <div class="therapist-header">
+                            <h3>Andy Vital</h3>
+                            <p class="therapist-title">Massagista</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Local</h4>
+                            <p>Av. Rio Branco, N° 156 /sala 1120</p>
+                            <p>Edifício Central</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Contato</h4>
+                            <p><a href="tel:21997235034" class="contact-link">(21) 99723-5034</a></p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Técnicas e Pagamento</h4>
+                            <div class="techniques">
+                                <span class="technique-tag">4 Mãos</span>
+                                <span class="technique-tag">Casais</span>
+                                <span class="technique-tag">Desportiva</span>
+                                <span class="technique-tag">Lingam</span>
+                                <span class="technique-tag">Mix</span>
+                                <span class="technique-tag">Mútua</span>
+                                <span class="technique-tag">Nuru</span>
+                                <span class="technique-tag">Relaxante</span>
+                                <span class="technique-tag">Tântrica</span>
+                                <span class="technique-tag">Yoni</span>
+                            </div>
+                            <div class="techniques">
+                                <span class="technique-tag">Esfoliação</span>
+                            </div>
+                            <div class="payment-methods">
+                                <p>Aceito: <span class="payment-tag">Crédito</span> - <span class="payment-tag">Débito</span> - <span class="payment-tag">Dinheiro</span> - <span class="payment-tag">Pix</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Sobre mim</h4>
+                            <p>Olá, meus amores! É um prazer ter você interessado em meu atendimento. Sou uma terapeuta carioca, atendendo no edifício central. Uma massagem comigo é uma experiência de profundo relaxamento e revitalização. Sou dedicada, e muito carinhosa com um toque suave e eficaz, oferecendo alívio imediato para tensões acumuladas e proporcionando uma sensação duradoura de bem-estar. Meu atendimento personalizado é ideal para quem busca aliviar dores musculares, reduzir o estresse ou simplesmente promover um equilíbrio entre corpo e mente. No ambiente acolhedor no centro cada sessão comigo é um momento de cuidado e renovação, deixando você revigorado(a) e com uma sensação de leveza e tranquilidade.</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Horários</h4>
+                            <div class="schedule">
+                                <div class="schedule-day">
+                                    <span class="day">Segunda a Sexta</span>
+                                    <span class="time">10:00 - 19:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Local</h4>
+                            <img src="arquivos/modelos/local/Vital Spa.jpeg" alt="Vital Spa - Terapias Holísticas" class="location-logo">
+                        </div>
+                        
+                        <a href="agendamento.html" class="professional-btn">Agendar Sessão</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Sobre a Vital</h3>
+                    <p>Somos especialistas em massoterapia, oferecendo tratamentos personalizados para seu bem-estar e relaxamento. Nossa equipe é altamente qualificada e comprometida com sua satisfação.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+                        <li><a href="index.html#nossos-profissionais"><i class="fas fa-chevron-right"></i> Profissionais</a></li>
+                        <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="index.html#local"><i class="fas fa-chevron-right"></i> Nosso Local</a></li>
+                        <li><a href="agendamento.html"><i class="fas fa-chevron-right"></i> Agendar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Massoterapia. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

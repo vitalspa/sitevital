@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Vital SPA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <span>Vital SPA</span>
+                </a>
+                </div>
+                
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span class="menu-icon"></span>
+                </button>
+
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Voltar ao Início</a>
+                    <a href="agendamento.html" class="btn-primary">Agendar</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="booking-section">
+                <h2>Agendamento</h2>
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Serviço:</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="Relaxante 30min" data-price="130.00">Massagem Relaxante (30min) - R$ 130,00</option>
+                            <option value="Relaxante 60min" data-price="150.00">Massagem Relaxante (60min) - R$ 150,00</option>
+                            <option value="Desportiva 30min" data-price="150.00">Massagem Desportiva (30min) - R$ 150,00</option>
+                            <option value="Desportiva 60min" data-price="170.00">Massagem Desportiva (60min) - R$ 170,00</option>
+                            <option value="Tantrica 30min" data-price="200.00">Massagem Tântrica (30min) - R$ 200,00</option>
+                            <option value="Tantrica 60min" data-price="220.00">Massagem Tântrica (60min) - R$ 220,00</option>
+                            <option value="Thay 30min" data-price="220.00">Massagem Thay (30min) - R$ 220,00</option>
+                            <option value="Thay 60min" data-price="250.00">Massagem Thay (60min) - R$ 250,00</option>
+                            <option value="Nuru Mutua 30min" data-price="300.00">Nuru Mútua (30min) - R$ 300,00</option>
+                            <option value="Nuru Mutua 60min" data-price="350.00">Nuru Mútua (60min) - R$ 350,00</option>
+                            <option value="4 maos 30min" data-price="390.00">Massagem 4 Mãos (30min) - R$ 390,00</option>
+                            <option value="4 maos 60min" data-price="480.00">Massagem 4 Mãos (60min) - R$ 480,00</option>
+                            <option value="Home massage 30min" data-price="500.00">Home Massage (30min) - R$ 500,00</option>
+                            <option value="Vital 30min" data-price="330.00">Massagem Vital (30min) - R$ 330,00</option>
+                            <option value="Vital 60min" data-price="360.00">Massagem Vital (60min) - R$ 360,00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professional">Profissional:</label>
+                        <select id="professional" name="professional" required>
+                            <option value="">Selecione um profissional</option>
+                            <option value="Andy">Andy</option>
+                            <option value="Gabi">Gabi</option>
+                            <option value="Letícia">Letícia</option>
+                            <option value="Mary">Mary</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Data:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Horário:</label>
+                        <select id="time" name="time" required>
+                            <option value="">Selecione um horário</option>
+                            <option value="10:00">10:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:00">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:00">14:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:00">15:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="16:00">16:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="17:00">17:00</option>
+                            <option value="17:30">17:30</option>
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Observações:</label>
+                        <textarea id="notes" name="notes" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Agendar via WhatsApp
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Vital Spa</h3>
+                    <p>Av. Rio Branco, N° 156 /sala 1120, edifício central</p>
+                    <p>Centro - Rio de Janeiro</p>
+                    <p>Horário de Funcionamento:</p>
+                    <p>Segunda a Sexta: 10h às 19:30h</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/vitall.spa" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5521997235034" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vital Spa. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
